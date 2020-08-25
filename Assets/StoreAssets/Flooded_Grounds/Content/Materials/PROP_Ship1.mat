@@ -93,12 +93,12 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 4
-    - _Shift: 1.5
+    - _Shift: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _VMask: 1
     - _ZWrite: 1
-    - _layer1BreakupAmnt: 0.875
+    - _layer1BreakupAmnt: 0.822
     - _layer1Metal: 0
     - _layer1Tiling: 8
     m_Colors:
