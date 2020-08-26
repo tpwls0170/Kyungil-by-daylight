@@ -102,8 +102,8 @@ namespace UnityEngine.PostProcessing
         {
             get
             {
-                return model.IsModeActive(Mode.Depth)
-                       || model.IsModeActive(Mode.Normals)
+                return /*model.IsModeActive(Mode.Depth) ||*/
+                       model.IsModeActive(Mode.Normals)
                        || model.IsModeActive(Mode.MotionVectors);
             }
         }
