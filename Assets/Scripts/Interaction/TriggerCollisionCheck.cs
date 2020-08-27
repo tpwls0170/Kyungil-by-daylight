@@ -27,8 +27,12 @@ public class TriggerCollisionCheck : MonoBehaviour
         // 상호작용이 가능하지 않은 거리
         if ((transform.position - colliPlayer.transform.position).magnitude > interactionDistance)
         {
-            if(changeSignal)
+            if (changeSignal)
+            {
                 objectInteraction.SignalChangeBack();
+                changeSignal = false;
+            }
+                
             return;
         }
         
@@ -39,7 +43,7 @@ public class TriggerCollisionCheck : MonoBehaviour
             objectInteraction.SignalChange();
         }
 
-        if (playerInput.interact)
+        if (playerInput.interact != 0f)
         {
             GetComponent<IObjectInteraction>().Interact();
             colliPlayer.GetComponent<IPlayerInteraction>().Interact();

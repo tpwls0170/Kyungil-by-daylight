@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-<<<<<<< HEAD
-    public string moveAxisName = "Vertical";
-    public string rotateAxisName = "Horizontal";
-    public string fireButtonName = "Fire1";
-=======
-    public bool interact { get; private set; }
->>>>>>> 2900294537ad35b8ebf07b6387a9fd8e23c69e0e
+    public string verticalAxisName = "Vertical";
+    public string horizontalAxisName = "Horizontal";
+    public string jumpButtonName = "Jump";
+    public string interatButtonName = "Fire1";
+    public string cameraRotationXName = "Mouse X";
+    public string cameraRotationYName = "Mouse Y";
 
-    public float move { get; private set; }
-    public float rotate { get; private set; }
-    public float fire { get; private set; }
+    public float moveHorizontal { get; private set; }
+    public float moveVertical { get; private set; }
+    public bool jump { get; private set; }
+    public float interact { get; private set; }
+    public float cameraRotationX { get; private set; }
+    public float cameraRotationY { get; private set; }
 
     private void Update()
     {
-        move = Input.GetAxis(moveAxisName);
-        rotate = Input.GetAxis(rotateAxisName);
-        fire = Input.GetAxis(fireButtonName);
+        moveHorizontal = Input.GetAxis(verticalAxisName);
+        moveVertical = Input.GetAxis(horizontalAxisName);
+        jump = Input.GetButton(jumpButtonName);
+        interact = Input.GetAxis(interatButtonName);
+        cameraRotationX = Input.GetAxis(cameraRotationXName);
+        cameraRotationY = -Input.GetAxis(cameraRotationYName);
     }
 }
