@@ -6,15 +6,13 @@ public class PlayerInput : MonoBehaviour
 {
     public bool interact { get; private set; }
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        interact = Input.GetMouseButtonDown(0);
     }
 }

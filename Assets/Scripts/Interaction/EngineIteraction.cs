@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EngineIteraction : MonoBehaviour, IObjectInteraction
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameObject BoxBody;
+    [SerializeField]
+    private GameObject BoxCap;
+
+    Material matBoby;
+    Material matCap;
+
     void Start()
     {
-        
+        matBoby = BoxBody.GetComponent<MeshRenderer>().materials[0];
+        matCap = BoxCap.GetComponent<MeshRenderer>().materials[0];
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -38,6 +45,7 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
 
     public void Interact()
     {
-
+        matBoby.SetColor("_EmissionColor", new Color(0, 1, 0));
+        matCap.SetColor("_EmissionColor", new Color(0, 1, 0));
     }
 }
