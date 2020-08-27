@@ -40,9 +40,11 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isInjured", true);
         }
-        if (Input.GetKey(KeyCode.E) == true)
+
+
+        if (Input.GetKeyDown(KeyCode.E) == true)
         {
-            anim.SetBool("isDeath", true);
+            anim.SetTrigger("isDie");
         }
     }
 }

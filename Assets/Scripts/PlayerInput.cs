@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    GameObject interactionOther;
+    public string moveAxisName = "Vertical";
+    public string rotateAxisName = "Horizontal";
+    public string fireButtonName = "Fire1";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float move { get; private set; }
+    public float rotate { get; private set; }
+    public float fire { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        move = Input.GetAxis(moveAxisName);
+        rotate = Input.GetAxis(rotateAxisName);
+        fire = Input.GetAxis(fireButtonName);
     }
 }
