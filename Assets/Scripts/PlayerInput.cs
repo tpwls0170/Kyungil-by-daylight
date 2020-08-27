@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+<<<<<<< HEAD
+    public string moveAxisName = "Vertical";
+    public string rotateAxisName = "Horizontal";
+    public string fireButtonName = "Fire1";
+=======
     public bool interact { get; private set; }
+>>>>>>> 2900294537ad35b8ebf07b6387a9fd8e23c69e0e
 
-    void Start()
-    {
-        
-    }
+    public float move { get; private set; }
+    public float rotate { get; private set; }
+    public float fire { get; private set; }
 
-    void Update()
+    private void Update()
     {
-        interact = Input.GetMouseButtonDown(0);
+        move = Input.GetAxis(moveAxisName);
+        rotate = Input.GetAxis(rotateAxisName);
+        fire = Input.GetAxis(fireButtonName);
     }
 }
