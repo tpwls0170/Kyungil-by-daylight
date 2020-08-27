@@ -1,4 +1,0 @@
-﻿interface IInteraction
-{
-    void Interact();
-}

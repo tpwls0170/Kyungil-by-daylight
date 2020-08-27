@@ -1,0 +1,4 @@
+﻿interface IPlayerInteraction
+{
+    void Interact();
+}
