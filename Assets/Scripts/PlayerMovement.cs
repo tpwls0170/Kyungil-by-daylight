@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     bool walk;
     PlayerInput playerInput;
 
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -37,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
-        Rotate();
         CameraRotate();
+        Rotate();
     }
 
     private void Move()
@@ -48,9 +47,19 @@ public class PlayerMovement : MonoBehaviour
             // We are grounded, so recalculate move direction based on axes
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
+            //float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
+            //float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
+            Vector3 curSpeedX = new Vector3(0, 0, 0);
+
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) ||
+                Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S))
+                curSpeedX = canMove ? speed * (forward) : new Vector3(0, 0, 0);
+
+
             float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
-            moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+            
+            // moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+            moveDirection = curSpeedX;//+ (right * curSpeedY);
 
             if (Input.GetButton("Jump") && canMove)
             {
@@ -58,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // 애니메이션
-            if (curSpeedX != 0f || curSpeedY != 0f)
+            //if (curSpeedX != 0f || curSpeedY != 0f)
+            if (curSpeedX != new Vector3(0, 0, 0) || curSpeedY != 0f)
             {
                 if (!walk)
                 {
@@ -87,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Rotate()
     {
+     
     }
 
     private void CameraRotate()
@@ -99,6 +110,56 @@ public class PlayerMovement : MonoBehaviour
             rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
             playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
             transform.eulerAngles = new Vector2(0, transform.rotation.y + rotation.y);
+            Vector3 temprotation = new Vector3(0,0,0);
+
+            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, -45, 0);
+                temprotation = new Vector3(0, 45, 0);
+               
+            }
+
+            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 45, 0);
+                temprotation = new Vector3(0, -45, 0);
+
+            }
+
+            else if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 225, 0);
+                temprotation = new Vector3(0, -225, 0);
+
+            }
+
+            else if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 135, 0);
+                temprotation = new Vector3(0, -135, 0);
+
+            }
+
+            else if (Input.GetKey(KeyCode.D))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, -90, 0);
+                temprotation = new Vector3(0, 90, 0);              
+            }
+                      
+            else if (Input.GetKey(KeyCode.A))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 90, 0);
+                temprotation = new Vector3(0, -90, 0);               
+            }
+
+            else if (Input.GetKey(KeyCode.S))
+            {
+                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 180f, 0);
+                temprotation = new Vector3(0, -180f, 0);               
+            }
+
+            transform.eulerAngles = transform.eulerAngles + temprotation;
+
         }
     }
 }
