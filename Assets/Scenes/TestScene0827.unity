@@ -859,27 +859,27 @@ PrefabInstance:
     - target: {fileID: 4332330424930901686, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}
       propertyPath: signalColor1.g
-      value: 0.7028302
+      value: 0.4481132
       objectReference: {fileID: 0}
     - target: {fileID: 4332330424930901686, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}
       propertyPath: signalColor1.b
-      value: 0.9221698
+      value: 0.85476667
       objectReference: {fileID: 0}
     - target: {fileID: 4332330424930901686, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}
       propertyPath: signalColor2.r
-      value: 0.8104579
+      value: 0.9893775
       objectReference: {fileID: 0}
     - target: {fileID: 4332330424930901686, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}
       propertyPath: signalColor2.g
-      value: 0.8207547
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4332330424930901686, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}
       propertyPath: signalColor2.b
-      value: 0.3213332
+      value: 0.3254717
       objectReference: {fileID: 0}
     - target: {fileID: 4332330424930901687, guid: 314738fa5bd7b0042b515e78a7fb5ce6,
         type: 3}

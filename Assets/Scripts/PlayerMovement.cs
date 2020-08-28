@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
 
     Animator anim;
-
     bool walk;
+    PlayerInput playerInput;
+
 
     void Start()
     {
@@ -29,9 +30,18 @@ public class PlayerMovement : MonoBehaviour
 
         anim = GetComponent<Animator>();
         walk = false;
+
+        playerInput = GetComponent<PlayerInput>();
     }
 
     void Update()
+    {
+        Move();
+        Rotate();
+        CameraRotate();
+    }
+
+    private void Move()
     {
         if (characterController.isGrounded)
         {
@@ -48,10 +58,21 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // 애니메이션
-            if ((curSpeedX != 0f || curSpeedY != 0f) && !walk)
+            if (curSpeedX != 0f || curSpeedY != 0f)
             {
-                anim.SetBool("isWalk", true);
-                walk = true;
+                if (!walk)
+                {
+                    anim.SetBool("isRun", true);
+                    walk = true;
+                }
+            }
+            else
+            {
+                if (walk)
+                {
+                    anim.SetBool("isRun", false);
+                    walk = false;
+                }
             }
         }
 
@@ -62,7 +83,14 @@ public class PlayerMovement : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+    }
 
+    private void Rotate()
+    {
+    }
+
+    private void CameraRotate()
+    {
         // Player and Camera rotation
         if (canMove)
         {
@@ -70,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
             playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
-            transform.eulerAngles = new Vector2(0, rotation.y);
+            transform.eulerAngles = new Vector2(0, transform.rotation.y + rotation.y);
         }
     }
 }
