@@ -7,7 +7,9 @@ public class TriggerCollisionCheck : MonoBehaviour
     bool changeSignal;
 
     [SerializeField]
-    protected float interactionDistance;
+    protected float maxInteractionDistance = 2f;
+    [SerializeField]
+    protected float minInteractionDistance = 0f;
 
     private void Start()
     {
@@ -25,7 +27,8 @@ public class TriggerCollisionCheck : MonoBehaviour
     private void OnTriggerStay(Collider colliPlayer)
     {
         // 상호작용이 가능하지 않은 거리
-        if ((transform.position - colliPlayer.transform.position).magnitude > interactionDistance)
+        if ((transform.position - colliPlayer.transform.position).magnitude > maxInteractionDistance
+            || (transform.position - colliPlayer.transform.position).magnitude < minInteractionDistance)
         {
             if (changeSignal)
             {

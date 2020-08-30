@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EngineIteraction : MonoBehaviour, IObjectInteraction
 {
-    private Color baseColor;
+    private Color baseColor_matBody;
+    private Color baseColor_matCap;
     [SerializeField]
-    private Color signalColor1;
+    private Color signalColor1 = Color.magenta;
     [SerializeField]
-    private Color signalColor2;
+    private Color signalColor2 = Color.yellow;
 
     [SerializeField]
     private GameObject BoxBody;
@@ -27,7 +28,9 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
         matBoby = BoxBody.GetComponent<MeshRenderer>().materials[0];
         matCap = BoxCap.GetComponent<MeshRenderer>().materials[0];
 
-        baseColor = Color.white;
+        baseColor_matBody = matBoby.color;
+        baseColor_matCap = matCap.color;
+
         gauge = 0f;
     }
 
@@ -51,8 +54,8 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
 
     public void SignalEnd()
     {
-        matBoby.color = baseColor;
-        matCap.color = baseColor;
+        matBoby.color = baseColor_matBody;
+        matCap.color = baseColor_matCap;
     }
 
     public void Interact()
