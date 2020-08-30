@@ -18,17 +18,17 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
     private Material matBoby;
     private Material matCap;
 
+    private float gauge;
+    [SerializeField]
+    private float requiredTime;
+
     void Start()
     {
         matBoby = BoxBody.GetComponent<MeshRenderer>().materials[0];
         matCap = BoxCap.GetComponent<MeshRenderer>().materials[0];
 
         baseColor = Color.white;
-    }
-
-    void Update()
-    {
-
+        gauge = 0f;
     }
 
     public void Signal()
@@ -57,7 +57,21 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
 
     public void Interact()
     {
-        matBoby.SetColor("_EmissionColor", new Color(0, 1, 0));
-        matCap.SetColor("_EmissionColor", new Color(0, 1, 0));
+        if (gauge == 0f)
+        {
+            matBoby.SetColor("_EmissionColor", new Color(0, 0, 1));
+            matCap.SetColor("_EmissionColor", new Color(0, 0, 1));
+        }
+
+        gauge += Time.deltaTime;
+        //Debug.Log(gauge);
+
+        if (gauge >= requiredTime)
+        {
+            gauge = requiredTime;
+
+            matBoby.SetColor("_EmissionColor", new Color(0, 1, 0));
+            matCap.SetColor("_EmissionColor", new Color(0, 1, 0));
+        }
     }
 }

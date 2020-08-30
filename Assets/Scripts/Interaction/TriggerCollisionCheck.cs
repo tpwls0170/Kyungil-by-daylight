@@ -45,7 +45,7 @@ public class TriggerCollisionCheck : MonoBehaviour
 
         if (playerInput.interact != 0f)
         {
-            GetComponent<IObjectInteraction>().Interact();
+            objectInteraction.Interact();
             colliPlayer.GetComponent<IPlayerInteraction>().Interact();
         }
     }

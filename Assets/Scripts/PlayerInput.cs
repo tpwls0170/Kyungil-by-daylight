@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
     public string verticalAxisName = "Vertical";
     public string horizontalAxisName = "Horizontal";
     public string jumpButtonName = "Jump";
-    public string interatButtonName = "Fire1";
+    public string interatButtonName = "Interact";
     public string cameraRotationXName = "Mouse X";
     public string cameraRotationYName = "Mouse Y";
 
