@@ -2,15 +2,15 @@
 
 public class UIRotate : MonoBehaviour
 {
-    Transform CamTransform;
+    private Transform camTransform;
 
     void Start()
     {
-        CamTransform = Camera.main.transform;
+        camTransform = Camera.main.transform;
     }
 
     void Update()
     {
-        transform.LookAt(transform.position + CamTransform.rotation * Vector3.forward, CamTransform.rotation * Vector3.up);
+        transform.LookAt(transform.position + camTransform.rotation * Vector3.forward, camTransform.rotation * Vector3.up);
     }
 }

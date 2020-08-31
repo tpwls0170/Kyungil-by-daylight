@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Transform playerCameraParent;
+    public Transform playerSubCameraParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
 
