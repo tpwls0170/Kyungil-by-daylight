@@ -1310,31 +1310,31 @@ public class FogVolume : MonoBehaviour
 
 	void Update()
     {
-        #if UNITY_EDITOR
+        //#if UNITY_EDITOR
 
-        if (MessageDelay < 101)
-            MessageDelay++;
-        if(MessageDelay>100)
-            if (GameCamera.depthTextureMode == DepthTextureMode.None)
-                Debug.LogWarning("............ATTENTION, this camera is not generating the required Depth for Fog Volume. " +
-                    "Add -EnableDepthInForwardCamera.cs- to this camera");
+        //if (MessageDelay < 101)
+        //    MessageDelay++;
+        //if(MessageDelay>100)
+        //    if (GameCamera.depthTextureMode == DepthTextureMode.None)
+        //        Debug.LogWarning("............ATTENTION, this camera is not generating the required Depth for Fog Volume. " +
+        //            "Add -EnableDepthInForwardCamera.cs- to this camera");
 
-        if (RequestSavingMaterials)
-        {
-            CreateMaterial();
-            RequestSavingMaterials = false;
-        }
+        //if (RequestSavingMaterials)
+        //{
+        //    CreateMaterial();
+        //    RequestSavingMaterials = false;
+        //}
 
-        if (FogVolumeGameObject.name != m_prevFVName)
-        {
-            if (SaveMaterials)
-            {
-                RemoveMaterial();
-                m_prevFVName = FogVolumeGameObject.name;
-                CreateMaterial();
-            }
-        }
-        #endif
+        //if (FogVolumeGameObject.name != m_prevFVName)
+        //{
+        //    if (SaveMaterials)
+        //    {
+        //        RemoveMaterial();
+        //        m_prevFVName = FogVolumeGameObject.name;
+        //        CreateMaterial();
+        //    }
+        //}
+        //#endif
 
         //External depth:
         if (InjectCustomDepthBuffer && FogMaterial.IsKeywordEnabled("ExternalDepth") == false && ExcludeFromLowRes)
