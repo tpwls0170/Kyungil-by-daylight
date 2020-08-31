@@ -12,10 +12,16 @@ public class PalletInteraction : MonoBehaviour, IObjectInteraction
     private Color signalColor2 = Color.yellow;
 
     [SerializeField]
-    private GameObject Pallet;
+    private GameObject palletBody;
 
     private Material matPallet;
     private Material matLeg;
+
+    private Rigidbody palletRigidbody;
+
+    [SerializeField]
+    private Vector3 pushForce;
+    private int interNum = 0;
 
     private int hp;
     [SerializeField]
@@ -23,8 +29,9 @@ public class PalletInteraction : MonoBehaviour, IObjectInteraction
 
     void Start()
     {
-        matPallet = Pallet.GetComponent<MeshRenderer>().materials[0];
-        matLeg = Pallet.GetComponent<MeshRenderer>().materials[1];
+        matPallet = palletBody.GetComponent<MeshRenderer>().materials[0];
+        matLeg = palletBody.GetComponent<MeshRenderer>().materials[1];
+        palletRigidbody = GetComponentInParent<Rigidbody>();
 
         baseColor_matPallet = matPallet.color;
         baseColor_matLeg = matLeg.color;
@@ -57,21 +64,12 @@ public class PalletInteraction : MonoBehaviour, IObjectInteraction
 
     public void Interact()
     {
-        //if (gauge == 0f)
-        //{
-        //    matPallet.SetColor("_EmissionColor", new Color(0, 0, 1));
-        //    matCap.SetColor("_EmissionColor", new Color(0, 0, 1));
-        //}
-
-        //gauge += Time.deltaTime;
-        ////Debug.Log(gauge);
-
-        //if (gauge >= requiredTime)
-        //{
-        //    gauge = requiredTime;
-
-        //    matBoby.SetColor("_EmissionColor", new Color(0, 1, 0));
-        //    matCap.SetColor("_EmissionColor", new Color(0, 1, 0));
-        //}
+        switch(interNum)
+        {
+            case 0:
+                ++interNum;
+                palletRigidbody.AddForce(pushForce);
+                break;
+        }
     }
 }
