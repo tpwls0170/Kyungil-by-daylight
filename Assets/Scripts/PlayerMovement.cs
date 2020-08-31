@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Transform playerCameraParent;
+    public Transform playerSubCameraParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
 
@@ -61,10 +62,10 @@ public class PlayerMovement : MonoBehaviour
             // moveDirection = (forward * curSpeedX) + (right * curSpeedY);
             moveDirection = curSpeedX;//+ (right * curSpeedY);
 
-            if (Input.GetButton("Jump") && canMove)
-            {
-                moveDirection.y = jumpSpeed;
-            }
+            //if (Input.GetButton("Jump") && canMove)
+            //{
+            //    moveDirection.y = jumpSpeed;
+            //}
 
             // 애니메이션
             //if (curSpeedX != 0f || curSpeedY != 0f)
