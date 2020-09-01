@@ -17,6 +17,15 @@ TagManager:
   - FogVolume
   - FogVolumeSurrogate
   - FogVolumeUniform
+<<<<<<< HEAD
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+=======
   - Killer
   - Survivor
   - Generator
@@ -24,6 +33,7 @@ TagManager:
   - Pallet
   - Window
   - Mark
+>>>>>>> 25b185dab23fc7f80c21cdb35ac6726276c396ca
   - 
   - 
   - 
