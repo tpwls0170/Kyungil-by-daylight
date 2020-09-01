@@ -21,13 +21,14 @@ public class SlenderMove : MonoBehaviour
     private CapsuleCollider sphereCollider;
     private Rigidbody rigidbody;
 
-    public Transform testVec;
+    //public Transform testVec;
 
     public float moveSpeed = 8.0f;
     public float rotSpeed = 1.0f;
     public float gizmosRadius = 1.0f;
     public float jumpPower = 100.0f;
 
+    private float damage = 50;
     private bool isMove;
     private bool isAttack;
     private bool isCollDown;
@@ -53,9 +54,6 @@ public class SlenderMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(testVec.position);
-
-
         if (isMove)
         {
             hor = Input.GetAxisRaw(horAxis);
@@ -74,7 +72,7 @@ public class SlenderMove : MonoBehaviour
         }
         
         //충돌체 위치 변화
-        sphereCollider.center = new Vector3(0, spineTrans.position.y - 0.4f, 0);
+        sphereCollider.center = new Vector3(0, spineTrans.position.y - 0.3f, 0);
         
         // 회전
         rotY += Input.GetAxis(mouseY) * rotSpeed;
@@ -86,8 +84,19 @@ public class SlenderMove : MonoBehaviour
         {
             anim.SetTrigger("IsAttack");
             isAttack = true;
-
+            
             rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isAttack == true)
+        {
+            LivingEntity attackTarget = collision.gameObject.GetComponent<LivingEntity>();
+
+            if(attackTarget != null)
+             attackTarget.OnDamage(damage);
         }
     }
 

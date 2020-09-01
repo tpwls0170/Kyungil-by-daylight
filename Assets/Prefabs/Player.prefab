@@ -2322,6 +2322,7 @@ GameObject:
   - component: {fileID: 9025750005728086043}
   - component: {fileID: 9025750005728086112}
   - component: {fileID: 9025750005728086046}
+  - component: {fileID: -10418031695763941}
   - component: {fileID: 9025750005728086045}
   - component: {fileID: 9025750005728086044}
   m_Layer: 0
@@ -2408,6 +2409,19 @@ MonoBehaviour:
   interatButtonName: Fire1
   cameraRotationXName: Mouse X
   cameraRotationYName: Mouse Y
+--- !u!114 &-10418031695763941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178693186104366117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2fb643051e5354fb1ac7fe176a6444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
 --- !u!114 &9025750005728086045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,6 +2438,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   playerCameraParent: {fileID: 9025750005479390184}
+  playerSubCameraParent: {fileID: 0}
   lookSpeed: 2
   lookXLimit: 60
   canMove: 1
