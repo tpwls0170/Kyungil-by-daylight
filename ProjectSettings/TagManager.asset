@@ -17,21 +17,13 @@ TagManager:
   - FogVolume
   - FogVolumeSurrogate
   - FogVolumeUniform
-<<<<<<< HEAD
-  - SlenderCulling
-  - 
-  - 
-  - 
-  - 
-=======
   - Killer
   - Survivor
   - Generator
+  - Meathook
   - Pallet
+  - Window
   - Mark
->>>>>>> 38064406e7bac2818359320b26c3cf744bca93ed
-  - 
-  - 
   - 
   - 
   - 

@@ -36,6 +36,7 @@ public class PalletInteraction : MonoBehaviour, IObjectInteraction
         baseColor_matPallet = matPallet.color;
         baseColor_matLeg = matLeg.color;
         hp = maxHp;
+
     }
 
     public void Signal()

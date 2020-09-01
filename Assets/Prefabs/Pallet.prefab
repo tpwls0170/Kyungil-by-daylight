@@ -61,7 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalColor1: {r: 1, g: 0.5882353, b: 1, a: 1}
   signalColor2: {r: 1, g: 1, b: 0.5882353, a: 1}
-  Pallet: {fileID: 6285362309845919795}
+  palletBody: {fileID: 6285362309845919795}
+  pushForce: {x: 0, y: 0, z: 0}
   maxHp: 2
 --- !u!135 &111473192
 SphereCollider:

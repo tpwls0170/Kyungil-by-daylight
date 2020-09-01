@@ -1,9 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EngineIteraction : MonoBehaviour, IObjectInteraction
 {
+    static private int generatorNum = 0;
+    static public event Action generatorClear;
+
     private Color baseColor_matBody;
     private Color baseColor_matCap;
     [SerializeField]
@@ -33,6 +36,8 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
 
     void Start()
     {
+        ++generatorNum;
+
         matBoby = BoxBody.GetComponent<MeshRenderer>().materials[0];
         matCap = BoxCap.GetComponent<MeshRenderer>().materials[0];
 
@@ -106,6 +111,10 @@ public class EngineIteraction : MonoBehaviour, IObjectInteraction
             matCap.SetColor("_EmissionColor", new Color(0, 1, 0));
 
             SignalEnd();
+
+            --generatorNum;
+            if (generatorNum == 0)
+                generatorClear();
         }
     }
 }
