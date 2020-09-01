@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/StoreAssets/Dark UI/Scenes/Main Menu (Desktop).unity
+    path: Assets/Scenes/Main Menu (Desktop).unity
     guid: 6f8f43fe39c69494bbbe252a41e42ced
   - enabled: 1
-    path: Assets/StoreAssets/Dark UI/Scenes/LobbyScene.unity
+    path: Assets/Scenes/LobbyScene.unity
     guid: cd1f42bfa1e2730458f1f7757d135d0a
   - enabled: 1
     path: Assets/Scenes/Scene_A.unity
