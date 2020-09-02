@@ -62,10 +62,10 @@ public class PlayerMovement : MonoBehaviour
             // moveDirection = (forward * curSpeedX) + (right * curSpeedY);
             moveDirection = curSpeedX;//+ (right * curSpeedY);
 
-            if (Input.GetButton("Jump") && canMove)
-            {
-                moveDirection.y = jumpSpeed;
-            }
+            //if (Input.GetButton("Jump") && canMove)
+            //{
+            //    moveDirection.y = jumpSpeed;
+            //}
 
             // 애니메이션
             //if (curSpeedX != 0f || curSpeedY != 0f)
